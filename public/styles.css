@@ -1,0 +1,12 @@
+a{
+    margin-left: 2px;
+    font-size:24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+.Button{
+    display:flex;
+    justify-content: end;
+    margin-top: 5px;
+}
