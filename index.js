@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
-const connection = require('./models/database')
+const connection = require('./database/database')
+const categoriesController = require('./categories/categoriesController')
+const articlesController = require('./articles/articlesController')
+const Article = require("./articles/article")
+const Category = require("./categories/category")
 
 connection 
         .authenticate()
@@ -11,13 +15,18 @@ connection
         })
 
 
-
 app.set('view engine','ejs'); 
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-
 app.use(express.static('public'))
+
+
+
+
+
+app.use("/",categoriesController)
+app.use("/",articlesController)
 
 app.get("/", (req, res) =>{
     res.render("index");
