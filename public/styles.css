@@ -1,12 +1,190 @@
-a{
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    position:sticky;
+    top: 0;
+    z-index:999;
+    height: 65px;
+    background-color:#BA55D3;
+    
+}
+
+.logotipo{
+    display: flex;
+    flex: 1;
+    margin-top:23px;
+   
+   
+    
+}
+.link-logo{
+    
     margin-left: 2px;
     font-size:24px;
     font-weight: 600;
     color: white;
     text-decoration: none;
+    
+    
+    
 }
-.Button{
-    display:flex;
+
+
+.menu{  
+    display: flex;
+    flex:1;
+    
     justify-content: end;
-    margin-top: 5px;
+    
+    
+    
+}
+ul{
+    list-style-type: none; 
+    width: 300px; 
+    font-size: 0;
+    margin-top:20px;
+    text-align: center;
+}
+
+li{
+    display: inline-block; 
+    
+}
+
+
+.link-menu{
+    
+    text-decoration: none;
+    color: white;
+    font-size:14px;
+    opacity: 1;
+    transition: all ease 0.2;
+    font-weight: 600;
+    display: inline-block; 
+    padding: 10px; 
+    
+    
+
+
+}
+.link-menu:hover{
+    opacity: 0.9;
+    color: white;
+    font-size:15px;
+    
+
+}
+.link-logo:hover{
+    opacity: 0.9;
+    color: white;
+    font-size:25px;
+    
+
+}
+.category-btn{
+    display: flex;
+    align-items: center;
+    padding-top: 3px;
+    
+    justify-content: flex-end;
+    
+    
+    padding-bottom: 3px;
+}
+.category-new{
+    display:flex;
+    border-radius: 10px;
+    height:30px;
+    font-size: 15px;
+    width:150px;
+    justify-content:center;
+    text-align: center;
+    background-color:#BA55D3;
+    text-decoration: none;
+    color: white;
+    font-weight: 500; 
+}
+.category-new:hover{
+    background-color:#9400D3; 
+    color: white;
+    font-weight: 500; 
+
+}
+.category{
+    
+    display:flex;
+    border-radius: 10px;
+    height:30px;
+    font-size: 15px;
+    
+    justify-content:center;
+    background-color:#BA55D3;
+    text-decoration: none;
+    color: white;
+    font-weight: 500; 
+}
+
+.category:hover{
+    background-color:#9400D3; 
+    color: white;
+    font-weight: 500; 
+
+}
+
+h2{
+    color:#9400D3;
+}
+
+
+.editar{
+    border-radius: 10px;
+    height:30px;
+    font-size: 15px;
+    background-color:#F0FFF0;
+    text-decoration: none;
+    color: black;
+    font-weight: 500; 
+    width:70px;
+    opacity :1;
+    border:solid 1px #F0FFF0;
+}
+.deletar{
+    
+        border-radius: 10px;
+        height:30px;
+        font-size: 15px;
+        background-color:#FFDAB9;
+        text-decoration: none;
+        color: black;
+        font-weight: 500; 
+        width:70px;
+        opacity:1;
+        border:solid 1px #FFDAB9;
+    
+}
+
+.editar:hover{
+    
+    color:black;
+    opacity:0.7;
+}
+.deletar:hover{
+    
+    color:black;
+    opacity: 0.7;
+}
+.test-two{
+    
+    width: 300px;
+    
+    
+    
+}
+.test{
+    display: inline-block;
+    padding-left: 130px;
+    
+    
 }
