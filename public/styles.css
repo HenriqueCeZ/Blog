@@ -139,29 +139,32 @@ h2{
 
 
 .editar{
+    
+    
     border-radius: 10px;
-    height:30px;
     font-size: 15px;
     background-color:#F0FFF0;
-    text-decoration: none;
     color: black;
     font-weight: 500; 
-    width:70px;
     opacity :1;
     border:solid 1px #F0FFF0;
+    text-decoration: none;
+    width:60px;
+    
+    
 }
 .deletar{
-    
+         
         border-radius: 10px;
-        height:30px;
         font-size: 15px;
         background-color:#FFDAB9;
         text-decoration: none;
         color: black;
         font-weight: 500; 
-        width:70px;
         opacity:1;
         border:solid 1px #FFDAB9;
+        
+    
     
 }
 
