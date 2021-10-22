@@ -39,11 +39,34 @@ router.post("/articles/save",(req, res) =>{ //INSERT ARTICLES
                         body: body,
                         categoryId: category
                 }).then(()=>{
-                        res.redirect("/articles")
+                        res.redirect("/admin/articles/articles")
                 })
         }
 
 });     
+
+router.post("/articles/delete",(req,res) =>{ // delete article
+        var id = req.body.id;
+        if(id!=undefined){
+                if(!isNaN(id)){
+                        Article.destroy({
+                                where:{
+                                        id : id
+                                }
+                               
+                        }).then(()=>{
+                                res.redirect("/admin/article/article");
+                        })
+                        
+ //verifica se é um número
+                }else{
+                        res.redirect("admin/articles/articlese")
+                }
+        }else{
+                res.redirect("admin/articles/articles")
+        }
+
+})
 
 
 module.exports = router

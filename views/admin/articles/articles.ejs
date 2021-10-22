@@ -24,12 +24,17 @@
         <tbody>
             <% article.forEach(articles =>{ %> 
             <tr>
-                <td><%=articles.id%></td>
-                <td><%=articles.title%></td>
-                <td><%=articles.slug%></td>
-                <td><%=articles.category.title%></td>
-                <td><%=articles.id%></td>
-                <td>Actions</td>
+                <th><%=articles.id%></th>
+                <th><%=articles.title%></th>
+                <th><%=articles.slug%></th>
+                <th><%=articles.category.title%></th>
+                <th class="test-two">
+                    <button class="editar"><a class="editar" href=""  >Edit</a></button>
+                    <form class=" test" method="POST"action="/articles/delete" onsubmit="confirmarDelecao(event,this)">
+                    <input type="hidden" name="id" value="<%=articles.id%>">   
+                    <button class="deletar">Delete</button>
+                    </form>
+                </th>
 
             </tr>
 
@@ -46,7 +51,7 @@
 
 
 <script>
-    function confirmarDelecao(event, form){
+    function confirmarDelecao(event, form){ //funcao que previni submit errados
          event.preventDefault();
         var decision = confirm("Você quer deletar essa categoria?")
         if(decision){
