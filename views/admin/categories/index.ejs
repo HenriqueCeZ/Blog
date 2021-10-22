@@ -27,7 +27,7 @@
                     <th><%=category.slug%></th>
                     <th class="test-two">
                         
-                        <button class="editar">Edit</button>
+                        <button class="editar"><a class="editar" href="/admin/categories/edit/<%=category.id%> " >Edit</a></button>
                         <form class=" test" method="POST"action="/categories/delete" onsubmit="confirmarDelecao(event,this)">
                         <input type="hidden" name="id" value="<%=category.id%>">   
                         <button class="deletar">Delete</button>
