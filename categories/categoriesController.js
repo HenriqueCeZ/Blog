@@ -77,7 +77,7 @@ router.get("/admin/categories/edit/:id",(req,res)=>{// pegando o Id pelo get atr
 router.post("/categories/update", (req, res)=>{//crud update
         var id = req.body.id
         var title = req.body.title
-        Category.update({title:title},{
+        Category.update({title:title, slug: slugify(title)},{
                 where:{
                         id:id
                 }
