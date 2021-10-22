@@ -191,3 +191,49 @@ h2{
     
     
 }
+select{
+    margin-top:10px;
+    height: 40px;
+    width: 150px;
+    border: solid 1px #B452CD;
+    border-radius: 3px;
+}
+option{
+    color:#B452CD;
+    border: solid 1px #B452CD;
+}
+label{
+    font-weight: 600;
+    font-size: 15px;
+    color:#9400D3;  
+}
+.select{
+    padding: 20px;
+}
+
+.btn-home{
+    background-color:#BA55D3;
+    border-radius: 10px;
+}
+.btn-home:hover{
+    background-color:#9400D3; 
+    
+}
+
+.home-card{
+    background-color:#BA55D3;
+    margin-left: 2px;
+    font-size:24px;
+    font-weight: 600;
+    color: white;
+}
+.home-page{
+    
+    padding:20px;
+}
+.jumbotron{
+    margin-bottom: 30px;
+}
+p{
+    color:#BA55D3;
+}
