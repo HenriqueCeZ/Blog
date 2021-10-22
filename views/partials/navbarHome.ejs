@@ -8,14 +8,13 @@
     <div class="menu">
         
     <ul >
+        <%categories.forEach(category =>{ %> 
        
             <li >
-                <a class ="link-menu" href="/categories">Categories</a>
+                <a class ="link-menu" href="/<%=category.slug%>  "><%=category.title%> </a>
             </li>
-            <li >
-                <a class ="link-menu" href="/articles">Articles</a>
-            </li>
-
+            
+     <%  })%> 
     </ul>
 </div>
 
