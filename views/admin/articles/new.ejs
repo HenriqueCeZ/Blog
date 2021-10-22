@@ -1,0 +1,41 @@
+<%- include ("../../partials/header.ejs")%>
+<%- include ("../../partials/navbar.ejs")%>
+<div class="container">
+    <h2>Articles</h2>
+    <div class="color"> 
+    <form  method = "POST" class="form-control" action="/articles/save"> <script>//crud insert</script>
+        
+       
+      
+        <input class="form-control" type="text" name="title" placeholder="Title article" ><br>
+        <textarea id="article" name="body" class="form-control" placeholder="Write new article..."></textarea>
+        <div class="select">
+        <label for="">Select a Category:</label>
+        <select name="category" class="form-control"  >
+            <% category.forEach((categories)=>{ %>
+                <option value="<%=categories.id%> "><%=categories.title%></option>
+
+           <% }) %>
+        </select><br>
+    </div>
+        
+        <div class="category-btn">
+        <button class="category">New Article</button>
+        </div>   
+
+    </form>
+</div>
+</div>
+<%- include ("../../partials/footer.ejs")%>
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector:"#article",
+        plugins:[
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+
+        ]
+    })
+
+
+</script>
