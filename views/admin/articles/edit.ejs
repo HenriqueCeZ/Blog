@@ -7,13 +7,17 @@
         
        
       
-        <input value ="<%category.title%> " class="form-control" type="text" name="title" placeholder="Title article" ><br>
-        <textarea id="article" name="body" class="form-control" placeholder="Write new article..." value="<%article.body %> "></textarea>
+        <input value ="<%=article.title%> " class="form-control" type="text" name="title" placeholder="edit" ><br>
+        <textarea id="article" name="body" class="form-control" placeholder="Write new article..." ></textarea>
         <div class="select">
         <label for="">Select a Category:</label>
         <select name="category" class="form-control"  >
             <% category.forEach((categories)=>{ %>
-                <option value="<%=categories.id%> "><%=categories.title%></option>
+                <% if(categories.id == article.categoryId) { %> 
+                <option value="<%=categories.id%>" selected><%=categories.title%></option>
+                <%} else {  %> 
+                    <option value="<%=categories.id %>"><%=categories.title  %></option> 
+                    <% } %> 
 
            <% }) %>
         </select><br>
@@ -28,6 +32,12 @@
     </form>
 </div>
 </div>
+<div id="content" style="display: none;">
+    <%-article.body%>
+
+</div>
+
+
 <%- include ("../../partials/footer.ejs")%>
 <script src="/tinymce/tinymce.min.js"></script>
 <script>
@@ -36,7 +46,10 @@
         plugins:[
             'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
 
-        ]
+        ],
+        init_instance_callback: ()=>{
+            tinymce.get("article").setContent($("#content").html())
+        }   
     })
 
 
