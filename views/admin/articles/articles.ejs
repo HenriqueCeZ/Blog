@@ -29,7 +29,7 @@
                 <th><%=articles.slug%></th>
                 <th><%=articles.category.title%></th>
                 <th class="test-two">
-                    <button class="editar"><a class="editar" href=""  >Edit</a></button>
+                    <button class="editar"><a class="editar" href="/admin/articles/edit/<%=articles.id%>"  >Edit</a></button>
                     <form class=" test" method="POST"action="/articles/delete" onsubmit="confirmarDelecao(event,this)">
                     <input type="hidden" name="id" value="<%=articles.id%>">   
                     <button class="deletar">Delete</button>

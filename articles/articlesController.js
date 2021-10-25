@@ -4,11 +4,6 @@ const Category = require("../categories/Category")
 const Article = require("./article")
 const slugify = require("slugify")
 
-router.get("/admin/articles",(req,res) => {
-        res.render("admin/articles/articles")
-
-})
-
 
 router.get("/admin/articles/articles",(req, res)=>{//select na table artigos
         Article.findAll({
@@ -66,6 +61,40 @@ router.post("/articles/delete",(req,res) =>{ // delete article
                 res.redirect("admin/articles/articles")
         }
 
+})
+
+router.get("/admin/articles/edit/:id",(req,res)=>{
+        var id = req.params.id; 
+        if(isNaN(id)){
+         res.redirect("/admin/articles/articles")
+        } 
+        Article.findOne({
+                where:{
+                    id:id
+                }
+            }).then( article =>{
+                    if(article != undefined){
+                        Category.findAll().then(category=>{
+                            res.render("admin/articles/edit", {article: article, category: category});
+                    })
+                    
+                }
+        })             
+})  
+
+router.post("/articles/update", (req, res)=>{//crud update
+        var id = req.body.id
+        var title = req.body.title
+        var body = req.body.body
+        Article.update({title:title, body:body, slug: slugify(title)},{
+                where:{
+                        id:id
+                }
+        }).then(()=>{
+                res.redirect("/admin/articles/articles")
+        })
+
+        
 })
 
 
