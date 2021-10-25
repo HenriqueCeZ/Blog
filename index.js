@@ -61,7 +61,27 @@ app.get('/:slug',(req,res) =>{
         }).catch(err =>{
                  res.redirect("/")
             })
-        })                   
+        })    
+
+app.get("/category/:slug", (req, res) =>{
+        var slug = req.params.slug
+        Category.findOne({
+            where:{
+                slug: slug
+            },
+            include:[
+                {model: Article}
+            ]
+        }).then( category =>{
+                Category.findAll().then(categories =>{
+                    res.render("index",{articles: category.articles, categories: categories})
+                })
+                
+          
+        }).catch(err =>{
+            res.redirect("/")
+        })
+})                     
 
 app.listen(8080,()=>{
     console.log('app rodando!')
