@@ -22,9 +22,11 @@
     
     margin-left: 2px;
     font-size:24px;
+    transform: scale(0.9);
     font-weight: 600;
     color: white;
     text-decoration: none;
+    transition: all ease 0.2s;
     
     
     
@@ -35,21 +37,23 @@
     display: flex;
     flex:1;
     
-    justify-content: end;
+    justify-content: center;
     
     
     
 }
 ul{
+    display: flex;
     list-style-type: none; 
-    width: 300px; 
+   
     font-size: 0;
     margin-top:20px;
     text-align: center;
 }
 
 li{
-    display: inline-block; 
+    display: inline-flex; 
+    
     
 }
 
@@ -59,27 +63,30 @@ li{
     text-decoration: none;
     color: white;
     font-size:14px;
+    transform: scale(0.9);
     opacity: 1;
-    transition: all ease 0.2;
+    transition: all ease 0.2s;
     font-weight: 600;
-    display: inline-block; 
-    padding: 10px; 
+    padding: 20px; 
     
     
 
 
 }
 .link-menu:hover{
-    opacity: 0.9;
+    
     color: white;
-    font-size:15px;
+    transform: scale(1.2);
+    
+   
     
 
 }
 .link-logo:hover{
     opacity: 0.9;
     color: white;
-    font-size:25px;
+    transform: scale(1.2);
+    
     
 
 }
@@ -135,6 +142,12 @@ li{
 
 h2{
     color:#9400D3;
+    font-weight: 600;
+}
+h1{
+    color:#9400D3;
+    font-weight: 600;
+
 }
 
 
@@ -157,12 +170,12 @@ h2{
          
         border-radius: 10px;
         font-size: 15px;
-        background-color:#FFDAB9;
+        background-color:#F08080;
         text-decoration: none;
         color: black;
         font-weight: 500; 
         opacity:1;
-        border:solid 1px #FFDAB9;
+        border:solid 1px #F08080;
         
     
     
@@ -236,4 +249,11 @@ label{
 }
 p{
     color:#BA55D3;
+}
+
+.table{
+    background-color:#D8BFD8
+}
+th{
+    color:#555;
 }
