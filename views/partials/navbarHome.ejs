@@ -8,13 +8,19 @@
     <div class="menu">
         
     <ul >
+        <li >
+            <a class ="link-menu" href="/admin/users/create">Login</a>
+        </li>
         <%categories.forEach(category =>{ %> 
+
        
             <li >
                 <a class ="link-menu" href="/category/<%=category.slug%>  "><%=category.title%> </a>
             </li>
+           
             
      <%  })%> 
+            
     </ul>
 </div>
 
