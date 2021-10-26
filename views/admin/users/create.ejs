@@ -1,0 +1,31 @@
+<%- include ("../../partials/header.ejs")%>
+<%- include ("../../partials/navbarHome.ejs")%>
+<div class="container">
+    <div class="form-login">
+
+        <form method="POST" class="form--area" action="/admin/user/login">
+            
+            <input class="form--campo" type="text" name="login" placeholder="digite o login" autofocus>
+            
+            <input class="form--campo" type="password" name="senha" placeholder="digite a senha">
+            <div class="button--form">
+            <button class="category category--form">
+                <a class="link--button" href="/">Voltar</a>
+                </button>    
+            <button class="category category--form">Entrar</button>
+            </div>
+            <div class="link--form">
+                <a class="links--form" href="/admin/users/login">não tem conta e deseja efetuar cadastro?</a>
+    
+            </div>
+
+        </form>
+        
+
+
+    </div>
+
+</div>
+<%- include ("../../partials/footer.ejs")%>
+
+
