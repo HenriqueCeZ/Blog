@@ -11,7 +11,7 @@ const User = connection.define('users',{
     }
 })
 
-User.sync({force:false})
+User.sync({force:false}) // criando tabela no bd. O force false não recria a tabela
 
 
 module.exports = User;
