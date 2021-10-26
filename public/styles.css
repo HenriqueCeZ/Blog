@@ -1,4 +1,7 @@
-
+body{
+    background-color: #D8BFD8;
+    color:white;
+}
 .top{
     display: flex;
     justify-content: space-between;
@@ -141,11 +144,11 @@ li{
 }
 
 h2{
-    color:#9400D3;
+    color:black;
     font-weight: 600;
 }
 h1{
-    color:#9400D3;
+    color:black;
     font-weight: 600;
 
 }
@@ -248,7 +251,7 @@ label{
     margin-bottom: 30px;
 }
 p{
-    color:#BA55D3;
+    color:#333;
 }
 
 .table{
@@ -256,4 +259,63 @@ p{
 }
 th{
     color:#555;
+}
+.form-login{
+    margin-top:80px;
+    display:flex;
+    justify-content:center;
+
+}
+
+
+.form--campo{
+    display:flex;
+    width: 350px;
+    height: 40px;
+    border-radius: 3px;
+    border: solid 1px #D8BFD8;
+    margin:10px;
+    
+}
+.button--form{
+    display:flex;
+    justify-content:space-between;
+}
+.category--form{
+    margin-top: 20px;
+    margin-left: 10px;
+    border-radius: 3px;
+    
+
+}
+.link--form{
+    display:flex;
+    justify-content: center;
+    margin-top:15px;
+}
+.links--form{
+    text-decoration: none;
+    color:#333;
+
+}
+.links--form:hover{
+    text-decoration: none;
+    color:#333;
+
+}
+.link--button{
+    text-decoration: none;
+    color: white;
+}
+
+.link--button:hover{
+    text-decoration: none;
+    color: white;
+
+}
+
+.button--formTwo{
+    display:flex;
+    justify-content:end;
+    padding-right: 10px;
 }
