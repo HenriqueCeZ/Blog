@@ -4,9 +4,9 @@
 
 ## 💻 Projeto
 
- **Mini blog**
- **Crud completo com o Nodejs**
- **Authenticate completo**
+ **Mini blog** <br>
+ **Crud completo com o Nodejs**<br>
+ **Authenticate completo**<br>
  **logout**
  
  ## 🧱 Tecnologias
