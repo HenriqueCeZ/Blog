@@ -7,8 +7,9 @@ const userController = require("./user/userController")
 const user = require('./user/user')
 const Article = require("./articles/article")
 const Category = require("./categories/category")
+const session = require("express-session")
 
-
+//database
 connection 
         .authenticate()
         .then(()=>{
@@ -17,9 +18,20 @@ connection
             console.log(error)      
         })
 
+//sessions
 
+app.use(session({secret: 'ssshhhhh',saveUninitialized: true,resave: true}));
+
+
+
+
+
+
+//view engine
 app.set('view engine','ejs'); 
 
+
+//body parser
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(express.static('public'))
@@ -27,10 +39,21 @@ app.use(express.static('public'))
 
 
 
-
+//routes
 app.use("/",categoriesController)
 app.use("/",articlesController)
 app.use("/",userController)
+
+app.get("/session",(req,res) =>{
+    req.session.treinamento = "Formação nodejs"
+    res.send("sessão gerada!")
+})
+
+app.get("/leitura",(req,res) =>{
+    res.json({
+       treinamento: req.session.treinamento
+    })  
+})
 
 app.get("/", (req, res) =>{
     Article.findAll({
@@ -86,7 +109,7 @@ app.get("/category/:slug", (req, res) =>{
             res.redirect("/")
         })
 })                     
-
+//server
 app.listen(8080,()=>{
     console.log('app rodando!')
 })
