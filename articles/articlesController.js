@@ -3,9 +3,10 @@ const router = express.Router()
 const Category = require("../categories/Category")
 const Article = require("./article")
 const slugify = require("slugify")
+const adminAuth = require('../middlewares/adminAuth')
 
 
-router.get("/admin/articles/articles",(req, res)=>{//select na table artigos
+router.get("/admin/articles/articles",adminAuth ,(req, res)=>{//select na table artigos
         Article.findAll({
                 include:[
                         {model:Category}
@@ -16,14 +17,14 @@ router.get("/admin/articles/articles",(req, res)=>{//select na table artigos
 
 })
 
-router.get("/admin/articles/new",(req,res) => {//select nos titles de category
+router.get("/admin/articles/new",adminAuth ,(req,res) => {//select nos titles de category
         Category.findAll().then(category => {
                 res.render("admin/articles/new",{category: category})
         })
         
 })
 
-router.post("/articles/save",(req, res) =>{ //INSERT ARTICLES
+router.post("/articles/save",adminAuth ,(req, res) =>{ //INSERT ARTICLES
         var title = req.body.title
         var body = req.body.body
         var category = req.body.category
@@ -40,7 +41,7 @@ router.post("/articles/save",(req, res) =>{ //INSERT ARTICLES
 
 });     
 
-router.post("/articles/delete",(req,res) =>{ // delete article
+router.post("/articles/delete",adminAuth ,(req,res) =>{ // delete article
         var id = req.body.id;
         if(id!=undefined){
                 if(!isNaN(id)){
@@ -63,7 +64,7 @@ router.post("/articles/delete",(req,res) =>{ // delete article
 
 })
 
-router.get("/admin/articles/edit/:id",(req,res)=>{
+router.get("/admin/articles/edit/:id",adminAuth ,(req,res)=>{
         var id = req.params.id; 
         if(isNaN(id)){
          res.redirect("/admin/articles/articles")
@@ -82,7 +83,7 @@ router.get("/admin/articles/edit/:id",(req,res)=>{
         })             
 })  
 
-router.post("/articles/update", (req, res)=>{//crud update
+router.post("/articles/update", adminAuth ,(req, res)=>{//crud update
         var id = req.body.id
         var title = req.body.title
         var body = req.body.body
@@ -100,7 +101,7 @@ router.post("/articles/update", (req, res)=>{//crud update
         
 })
 
-router.get("/articles/page/:num",(req, res)=>{
+router.get("/articles/page/:num",adminAuth ,(req, res)=>{
         var page = req.params.num
         var offset = 0
         if(isNaN(page)|| page == 1){

@@ -2,12 +2,13 @@ const express = require('express')
 const router = express.Router()
 const Category = require("./category")
 const slugify = require("slugify")
+const adminAuth = require('../middlewares/adminAuth')
 
-router.get("/admin/categories/new",(req,res) =>{
+router.get("/admin/categories/new", adminAuth,(req,res) =>{
           res.render("admin/categories/new")        
 
 });
-router.post("/categories/save",(req,res) =>{ //crud insert
+router.post("/categories/save",adminAuth,(req,res) =>{ //crud insert
         var title = req.body.title;
         if(title != undefined){ 
                 Category.create({
@@ -22,7 +23,7 @@ router.post("/categories/save",(req,res) =>{ //crud insert
         }       
 
 })
-router.get("/admin/categories",(req,res)=>{ //crud select
+router.get("/admin/categories",adminAuth,(req,res)=>{ //crud select
 
         Category.findAll().then(categories=>{
                 res.render("admin/categories/index",{categories:categories})
@@ -31,7 +32,7 @@ router.get("/admin/categories",(req,res)=>{ //crud select
         
 
 })
-router.post("/categories/delete",(req,res) =>{ //crud delete
+router.post("/categories/delete",adminAuth,(req,res) =>{ //crud delete
         var id = req.body.id;
         if(id!=undefined){
                 if(!isNaN(id)){
@@ -54,7 +55,7 @@ router.post("/categories/delete",(req,res) =>{ //crud delete
 
 })
 
-router.get("/admin/categories/edit/:id",(req,res)=>{// pegando o Id pelo get através do edit e passando para varíavel category e renderizando a view de edit 
+router.get("/admin/categories/edit/:id",adminAuth,(req,res)=>{// pegando o Id pelo get através do edit e passando para varíavel category e renderizando a view de edit 
        var id = req.params.id; 
        if(isNaN(id)){
         res.redirect("/admin/categories")
@@ -74,7 +75,7 @@ router.get("/admin/categories/edit/:id",(req,res)=>{// pegando o Id pelo get atr
         
 });
 
-router.post("/categories/update", (req, res)=>{//crud update
+router.post("/categories/update", adminAuth,(req, res)=>{//crud update
         var id = req.body.id
         var title = req.body.title
         Category.update({title:title, slug: slugify(title)},{
