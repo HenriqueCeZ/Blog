@@ -84,8 +84,9 @@ router.post("/admin/user/login",(req,res)=>{
     
 
 })
-router.get("",authAdmin,(req,res)=>{
-    
+router.get("/logout",adminAuth,(req,res)=>{
+    req.session.users = undefined;
+    res.redirect("/");
 })
 
 

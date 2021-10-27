@@ -46,7 +46,6 @@ app.use("/",userController)
 
 app.get("/session",(req,res) =>{
     req.session.treinamento = "Formação nodejs"
-    res.send("sessão gerada!")
 })
 
 app.get("/leitura",(req,res) =>{
